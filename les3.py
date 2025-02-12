@@ -1,5 +1,5 @@
 import math
-import re
+
 
 # 1. Есть три целочисленные переменные, нужно посчитать:
 # сумму
@@ -8,36 +8,45 @@ import re
 # от первой переменной отнять вторую и прибавить третью
 # поделить произведение двух переменных на третью
 # от суммы первых двух переменных найти остаток от деления на третью переменную
-a = 25; b = 13; c = 4
 
-d = a + b + c
-print(d)
-e = a - b - c
-print(e)
-f = a * b * c
-print(f)
-g = (a - b) + c
-print(g)
-h = (a * b) / c
-print(h)
-k = (a + b) % c
-print(k)
+a = 25
+b = 13
+c = 4
+
+
+amount = a + b + c
+print(amount)
+
+difference = a - b - c
+print(difference)
+
+work = a * b * c
+print(work)
+
+difference = (a - b) + c
+print(difference)
+
+work_a = (a * b) / c
+print(work_a)
+
+amount_a = (a + b) % c
+print(amount_a)
 
 
 # 2. Дан прямоугольный треугольник с катетами cat_a и cat_b.
 # Найти площадь треугольника и его гипотенузу.
-cat_1 = input('a = ')
-cat_2 = input('b = ')
+cat_a = input('cat_a = ')
+cat_b = input('cat_b = ')
 
-cat_1 = float(a)
-cat_2 = float(b)
+cat_a = float(a)
+cat_b = float(b)
 
 area = (a * b) / 2
-c = math.sqrt(a**2 + b**2)
+hypotenuse = math.sqrt(a**2 + b**2)
 perimeter = a + b + c
 
-print('Area: ', area)
-print('Perimeter: ', round(perimeter, 2))
+print('Area:', area)
+print('Perimeter:', round(perimeter, 2))
 
 
 # 3.Дана строка, состоящая из слов, разделенных пробелами.
@@ -47,21 +56,15 @@ print('Perimeter: ', round(perimeter, 2))
 
 
 text = ('‘Hello world’, ‘a b c’, ‘test’, ‘test1 test2 test3 test4 test5’')
-text = re.sub(r'[^\w\s]', '', text.lower())
-text = len([word for word in text.split() if word])
-print(text)
+print(text.count(' ') + 1)
 
 
 # 4. Дана строка. Замените в этой строке все появления буквы h на букву H,
 # кроме первого и последнего вхождения. Подсказка: использовать метод replace
 # с параметрами. Например, дано: ‘hhhabchghhh’, должно быть: ‘hHHabcHgHHh’
 
-s = ('hhhabchghhh')
-a = s[:s.find('h') + 1]
-b = s[s.find('h') + 1:s.rfind('h')]
-c = s[s.rfind('h'):]
-s = a + b.replace('h', 'H') + c
-print(s)
+line = ('hhhabchghhh')
+print(line.replace('h', 'H', line.count('h')-1).replace('H','h',1))
 
 
 # 5. Дана строка.
@@ -77,16 +80,16 @@ print(s)
 # начиная с последнего.
 # 9 В девятой строке выведите длину данной строки.
 
-string_2 = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNn'
-print(string_2[2])
-print(string_2[-2])
-print(string_2[:5])
-print(string_2[:-2])
-print(string_2[::2])
-print(string_2[1::2])
-print(string_2[::-1])
-print(string_2[::-2])
-print(len(string_2))
+string = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNn'
+print(string[2])
+print(string[-2])
+print(string[:5])
+print(string[:-2])
+print(string[::2])
+print(string[1::2])
+print(string[::-1])
+print(string[::-2])
+print(len(string))
 
 
 # Тестовые данные для 5 задачи:
@@ -101,56 +104,49 @@ print(len(string_2))
 # olH
 # 5
 
-wert = 'Hello'
-print(wert[2])
-print(wert[3])
-print(wert[:5])
-print(wert[:3])
-print(wert[::2])
-print(wert[1:3])
-print(wert[::-1])
-print(wert[::-1])
-print(wert[::-2])
-print(len(wert))
+
+string = 'Hello'
+print(string[2])
+print(string[3])
+print(string[:5])
+print(string[:3])
+print(string[::2])
+print(string[1:3])
+print(string[::-1])
+print(string[::-1])
+print(string[::-2])
+print(len(string))
 
 
 # Дано целое число. Выведите его последнюю цифру.
 # Например, дано 200 - последняя цифра 0. Дано 123 - последняя цифра 3. Дано 587 - последняя 7.
-a = 200
-b = 123
-c = 587
 
-print(a % 10)
-print(b % 10)
-print(c % 10)
+number_one = 200
+number_two = 123
+number_tree = 587
+
+print(number_one % 10)
+print(number_two % 10)
+print(number_tree % 10)
 
 
 # 7. Дано трехзначное число, найти количество его десятков. Например, дано 123 – количество десятков: 2,
 # дано 978 – количество десятков: 7.
-a = 123
-b = 978
-print(a // 10 % 10)
-print(b // 10 % 10)
+
+number_one = 123
+number_two = 978
+print(number_one // 10 % 10)
+print(number_two // 10 % 10)
 
 
 # 8. Дано трехзначное число, найти сумму его цифр. Например, дано 123 – сумма 6, дано 555, сумма 15.
-a = 123 // 100
-b = 123 // 10 % 10
-c = 123 % 10
-print(a + b + c)
 
-d = 555 // 100
-e = 555 // 10 % 10
-f = 555 % 10
-print(d + e + f)
+number_one = 123 // 100
+number_two = 123 // 10 % 10
+number_tree = 123 % 10
+print(number_one + number_two + number_tree)
 
-
-
-
-
-
-
-
-
-
-
+number_one = 555 // 100
+number_two = 555 // 10 % 10
+number_tree = 555 % 10
+print(number_one + number_two + number_tree)
